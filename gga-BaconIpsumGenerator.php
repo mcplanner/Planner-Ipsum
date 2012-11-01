@@ -1,4 +1,5 @@
 <?php 
+
 /*
 Class: Bacon Ipsum Generator
 Author: Pete Nelson (@GunGeekATX)

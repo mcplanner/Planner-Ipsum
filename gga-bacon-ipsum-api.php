@@ -1,21 +1,16 @@
 <?php
 /*
-Plugin Name: Bacon Ipsum - API
-Description: Handles incoming API requests
-Plugin URI: https://github.com/petenelson/bacon-ipsum
-Version: 2.1.1
-Author: Pete Nelson (@GunGeekATX)
-Author URI: http://petenelson.com
+Plugin Name: Planner Ipsum
 */
 
-add_action('posts_selection', 'gga_bacon_ipsum_api');
-function gga_bacon_ipsum_api() {
+add_action('posts_selection', 'gga_planner_ipsum_api');
+function gga_planner_ipsum_api() {
 
 	if (is_page('api') && isset($_REQUEST['type'])) { 
 		
-		require_once 'gga-BaconIpsumGenerator.php';
+		require_once 'gga-PlannerIpsumGenerator.php';
 		
-		$generator = new BaconIpsumGenerator();
+		$generator = new PlannerIpsumGenerator();
 		$number_of_sentences = 0;
 		$number_of_paragraphs = 5;
 
@@ -38,7 +33,7 @@ function gga_bacon_ipsum_api() {
 
 		$start_with_lorem = isset($_REQUEST["start-with-lorem"]) && $_REQUEST["start-with-lorem"] == "1";
 
-		$paras = $generator->Make_Some_Meaty_Filler(
+		$paras = $generator->Make_Some_Planning_Filler(
 			filter_var($_REQUEST["type"], FILTER_SANITIZE_STRING), 
 			$number_of_paragraphs, 
 			$start_with_lorem, 

@@ -141,7 +141,7 @@ class PlannerIpsumGenerator {
 				'layer',
 				'spatial analysis',
 				'geography',
-				'geospatial analysis,'
+				'geospatial analysis',
 				'geospatial',
 				'landscape',
 				'landscape architecture',

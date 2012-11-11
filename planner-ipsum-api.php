@@ -1,14 +1,17 @@
 <?php
 /*
-Plugin Name: Planner Ipsum
+Plugin Name: Planner Ipsum API
+Author: Ruth Miller
+Description: originally Pete Nelson's Bacon Ipsum Generator (@GunGeekATX)
+Version: 0.1
 */
 
-add_action('posts_selection', 'gga_planner_ipsum_api');
-function gga_planner_ipsum_api() {
+add_action('posts_selection', 'planner_ipsum_api');
+function planner_ipsum_api() {
 
 	if (is_page('api') && isset($_REQUEST['type'])) { 
 		
-		require_once 'gga-PlannerIpsumGenerator.php';
+		require_once 'PlannerIpsumGenerator.php';
 		
 		$generator = new PlannerIpsumGenerator();
 		$number_of_sentences = 0;

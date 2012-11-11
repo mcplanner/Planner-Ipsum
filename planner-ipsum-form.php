@@ -1,17 +1,20 @@
 <?php
 /*
-Plugin Name: Planning Ipsum 
+Plugin Name: Planner Ipsum Form
+Author: Ruth Miller
+Description: originally Pete Nelson's Bacon Ipsum Generator (@GunGeekATX)
+Version: 0.1
 */
 
-add_shortcode('gga-planner-ipsum-form', 'gga_planner_ipsum_form');
-function gga_planner_ipsum_form($atts)
+add_shortcode('planner-ipsum-form', 'planner_ipsum_form');
+function planner_ipsum_form($atts)
 {
 	$output = '';
 
 	$form = '
-		<p>Need some wonky planner verbage? Generate some automatically!</p>
+		<p>Need some wonky planner verbage? Generate it automatically!</p>
 
-		<form id="make-it-planning" action="' . site_url('/') . '" method="get">
+		<form id="make-it-planning" action="' . site_url('/') . 'planner-ipsum/" method="get">
 			<table>
 				<tbody>
 				<tr>
@@ -35,7 +38,7 @@ function gga_planner_ipsum_form($atts)
 	if (isset($_REQUEST["type"]))
 	{
 
-		require_once 'gga-PlannerIpsumGenerator.php';
+		require_once 'PlannerIpsumGenerator.php';
 
 		$generator = new PlannerIpsumGenerator();
 		$number_of_paragraphs = 5;
@@ -50,7 +53,7 @@ function gga_planner_ipsum_form($atts)
 		if ($number_of_paragraphs > 100)
 			$number_of_paragraphs = 100;
 
-		$paragraphs = $generator->Make_Some_Planner_Filler(
+		$paragraphs = $generator->Make_Some_Planning_Filler(
 			$_REQUEST["type"], 
 			$number_of_paragraphs,
 			isset($_REQUEST["start-with-lorem"]) && $_REQUEST["start-with-lorem"] == "1");

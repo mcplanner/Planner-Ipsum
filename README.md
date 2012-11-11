@@ -1,4 +1,4 @@
-A repository for the baconipsum.com code 
+A repository for the planneripsum code, forked from Bacon-Ipsum https://github.com/petenelson/bacon-ipsum
 
 = What's in here? =
 
